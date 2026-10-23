@@ -1,0 +1,390 @@
+{
+  "cases_total": 13,
+  "cases_passed": 13,
+  "metrics": {
+    "constraint_satisfaction": 1.0,
+    "structured_output_validity": 1.0,
+    "grounding": 1.0,
+    "tool_selection_success": 1.0,
+    "graceful_failure_handling": 1.0,
+    "cache_behavior": 1.0,
+    "case_pass_rate": 1.0
+  },
+  "results": [
+    {
+      "id": "normal_lisbon_food_history",
+      "expect": "success",
+      "ok": true,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": 855.0,
+      "destination": "Lisbon",
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "normal_open_destination",
+      "expect": "success",
+      "ok": true,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": 519.0,
+      "destination": "Mexico City",
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "over_budget_kyoto",
+      "expect": "unavailable",
+      "ok": false,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": null,
+      "destination": null,
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "impossible_constraints",
+      "expect": "unavailable",
+      "ok": false,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": null,
+      "destination": null,
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "provider_failure",
+      "expect": "unavailable",
+      "ok": false,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": null,
+      "destination": null,
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "missing_data_unknown_destination",
+      "expect": "unavailable",
+      "ok": false,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": null,
+      "destination": null,
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "edge_single_day",
+      "expect": "success",
+      "ok": true,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": 367.0,
+      "destination": "Denver",
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "edge_leap_date",
+      "expect": "success",
+      "ok": true,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": 459.0,
+      "destination": "Mexico City",
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "invalid_preferences",
+      "expect": "error",
+      "ok": false,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": null,
+      "destination": null,
+      "errors": [
+        "start_date must be ISO YYYY-MM-DD",
+        "unknown interest: teleportation"
+      ],
+      "trace": [
+        "capture_preferences"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "empty_provider",
+      "expect": "unavailable",
+      "ok": false,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": null,
+      "destination": null,
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": null,
+      "cache_hit": null,
+      "cache_mode": null,
+      "identical_output": null
+    },
+    {
+      "id": "cache_repeat_lisbon",
+      "expect": "success",
+      "ok": true,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": 855.0,
+      "destination": "Lisbon",
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": 1,
+      "cache_hit": true,
+      "cache_mode": "repeat",
+      "identical_output": true
+    },
+    {
+      "id": "cache_repeat_denver",
+      "expect": "success",
+      "ok": true,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": 442.0,
+      "destination": "Denver",
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": 1,
+      "cache_hit": true,
+      "cache_mode": "repeat",
+      "identical_output": true
+    },
+    {
+      "id": "cache_stale_ttl_zero",
+      "expect": "success",
+      "ok": true,
+      "scores": {
+        "constraint_satisfaction": true,
+        "structured_output_validity": true,
+        "grounding": true,
+        "tool_selection_success": true,
+        "graceful_failure_handling": true,
+        "cache_behavior": true,
+        "case_pass": true
+      },
+      "total_cost_usd": 855.0,
+      "destination": "Lisbon",
+      "errors": [],
+      "trace": [
+        "capture_preferences",
+        "gather_options",
+        "validate_constraints",
+        "build_itinerary",
+        "explain_tradeoffs",
+        "verify_grounding"
+      ],
+      "provider_calls": 2,
+      "cache_hit": false,
+      "cache_mode": "stale_ttl_zero",
+      "identical_output": true
+    }
+  ]
+}

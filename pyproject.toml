@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "myles"
+version = "0.1.0"
+description = "Myles — Travel Intelligence Assistant: deterministic, grounded itinerary planning"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.6"]
+[tool.setuptools.packages.find]
+include = ["myles*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

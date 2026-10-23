@@ -1,0 +1,237 @@
+[
+  {
+    "description": "Normal: Nashville->Lisbon hint, food+history, ample budget",
+    "expect": "success",
+    "id": "normal_lisbon_food_history",
+    "prefs": {
+      "budget_usd": 1800,
+      "destination": "Lisbon",
+      "duration_days": 4,
+      "interests": [
+        "food",
+        "history"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Normal: no destination hint, planner picks best scoring fixture destination",
+    "expect": "success",
+    "id": "normal_open_destination",
+    "prefs": {
+      "budget_usd": 1200,
+      "duration_days": 3,
+      "interests": [
+        "food",
+        "history"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-12-01",
+      "travelers": 1
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Over-budget: Kyoto on $300 cannot cover cheapest flight+lodging",
+    "expect": "unavailable",
+    "id": "over_budget_kyoto",
+    "prefs": {
+      "budget_usd": 300,
+      "destination": "Kyoto",
+      "duration_days": 4,
+      "interests": [
+        "history"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Impossible: $100 budget, 10 days, any destination",
+    "expect": "unavailable",
+    "id": "impossible_constraints",
+    "prefs": {
+      "budget_usd": 100,
+      "duration_days": 10,
+      "interests": [
+        "food"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 2
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Provider failure simulation: FailingProvider raises",
+    "expect": "unavailable",
+    "id": "provider_failure",
+    "prefs": {
+      "budget_usd": 1500,
+      "duration_days": 4,
+      "interests": [
+        "food"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    },
+    "provider": "failing"
+  },
+  {
+    "description": "Missing data: unknown destination hint returns no bundles",
+    "expect": "unavailable",
+    "id": "missing_data_unknown_destination",
+    "prefs": {
+      "budget_usd": 1500,
+      "destination": "Atlantis",
+      "duration_days": 4,
+      "interests": [
+        "food"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Edge dates: 1-day trip (nights = max(duration-1,1))",
+    "expect": "success",
+    "id": "edge_single_day",
+    "prefs": {
+      "budget_usd": 800,
+      "destination": "Denver",
+      "duration_days": 1,
+      "interests": [
+        "nature",
+        "adventure"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Edge dates: start on leap day 2028-02-29",
+    "expect": "success",
+    "id": "edge_leap_date",
+    "prefs": {
+      "budget_usd": 1000,
+      "destination": "Mexico City",
+      "duration_days": 3,
+      "interests": [
+        "food",
+        "art"
+      ],
+      "origin": "New York",
+      "start_date": "2028-02-29",
+      "travelers": 1
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Invalid input: bad date + unknown interest must be caught at capture_preferences",
+    "expect": "error",
+    "id": "invalid_preferences",
+    "prefs": {
+      "budget_usd": 1000,
+      "duration_days": 3,
+      "interests": [
+        "teleportation"
+      ],
+      "origin": "Nashville",
+      "start_date": "not-a-date",
+      "travelers": 1
+    },
+    "provider": "fixture"
+  },
+  {
+    "description": "Missing data: EmptyProvider returns nothing, must fail gracefully",
+    "expect": "unavailable",
+    "id": "empty_provider",
+    "prefs": {
+      "budget_usd": 1500,
+      "duration_days": 4,
+      "interests": [
+        "food"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    },
+    "provider": "empty"
+  },
+  {
+    "id": "cache_repeat_lisbon",
+    "description": "Cache repeat: second identical Lisbon request served from cache with identical grounded output (1 provider call for 2 runs)",
+    "expect": "success",
+    "provider": "fixture",
+    "cache": {
+      "mode": "repeat",
+      "ttl_seconds": 300
+    },
+    "prefs": {
+      "budget_usd": 1800,
+      "destination": "Lisbon",
+      "duration_days": 4,
+      "interests": [
+        "food",
+        "history"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    }
+  },
+  {
+    "id": "cache_repeat_denver",
+    "description": "Cache repeat: second identical Denver request served from cache with identical grounded output (1 provider call for 2 runs)",
+    "expect": "success",
+    "provider": "fixture",
+    "cache": {
+      "mode": "repeat",
+      "ttl_seconds": 300
+    },
+    "prefs": {
+      "budget_usd": 900,
+      "destination": "Denver",
+      "duration_days": 3,
+      "interests": [
+        "nature",
+        "adventure"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    }
+  },
+  {
+    "id": "cache_stale_ttl_zero",
+    "description": "Stale cache: TTL=0 forces fresh provider data on second Lisbon request (2 provider calls), output still grounded and identical",
+    "expect": "success",
+    "provider": "fixture",
+    "cache": {
+      "mode": "stale_ttl_zero",
+      "ttl_seconds": 0
+    },
+    "prefs": {
+      "budget_usd": 1800,
+      "destination": "Lisbon",
+      "duration_days": 4,
+      "interests": [
+        "food",
+        "history"
+      ],
+      "origin": "Nashville",
+      "start_date": "2026-11-10",
+      "travelers": 1
+    }
+  }
+]
